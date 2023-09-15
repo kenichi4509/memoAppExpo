@@ -5,8 +5,10 @@ import Hello from "./src/components/Hello";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Hello />
-      <Text>できたわーーｗｗｗ</Text>
+      <Hello style={{ fontSize: 60 }} bang>
+        やっほ
+      </Hello>
+      <Text>できたわーーｗ</Text>
       <StatusBar style="auto" />
     </View>
   );
