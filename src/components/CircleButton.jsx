@@ -1,13 +1,14 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { string, shape } from "prop-types";
+import { Feather } from "@expo/vector-icons";
 
 export default function CirculeButton(props) {
-  const { children, style } = props;
+  const { style, name } = props;
 
   CirculeButton.propTypes = {
-    children: string.isRequired,
     style: shape(),
+    name: string.isRequired,
   };
 
   CirculeButton.defaultProps = {
@@ -16,7 +17,7 @@ export default function CirculeButton(props) {
 
   return (
     <View style={[styles.circleButton, style]}>
-      <Text style={styles.circleButtonLavel}>{children}</Text>
+      <Feather name={name} size={32} color="white" />
     </View>
   );
 }
