@@ -4,7 +4,7 @@ import { string, shape } from "prop-types";
 import Icon from "./Icon";
 
 export default function CirculeButton(props) {
-  const { style, name } = props;
+  const { style, name, color } = props;
 
   CirculeButton.propTypes = {
     style: shape(),
@@ -17,7 +17,7 @@ export default function CirculeButton(props) {
 
   return (
     <View style={[styles.circleButton, style]}>
-      <Icon name={name} size={40} color="#fff" />
+      <Icon name={name} size={40} color={color} />
     </View>
   );
 }
@@ -41,9 +41,9 @@ const styles = StyleSheet.create({
     // elevationはAndroid対応 ※重なり順、高さ
     elevation: 8,
   },
-  circleButtonLavel: {
-    color: "#fff",
-    fontSize: 40,
-    lineHeight: 40,
-  },
+  // circleButtonLavel: {
+  //   color: "#fff",
+  //   fontSize: 40,
+  //   lineHeight: 40,
+  // },
 });
