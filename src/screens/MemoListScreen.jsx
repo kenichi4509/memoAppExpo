@@ -9,7 +9,7 @@ export default function MemoListScreen() {
     <View style={styles.container}>
       <AppBar />
       <MemoList />
-      <CirculeButton name="plus" />
+      <CirculeButton name="plus" color="#fff" />
     </View>
   );
 }

@@ -1,24 +1,28 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import { string, shape } from "prop-types";
+import { StyleSheet, TouchableOpacity } from "react-native";
+import { string, shape, func } from "prop-types";
 import Icon from "./Icon";
 
 export default function CirculeButton(props) {
-  const { style, name, color } = props;
+  const { style, name, color, onPress } = props;
 
   CirculeButton.propTypes = {
     style: shape(),
     name: string.isRequired,
+    onPress: func,
+    color: string,
   };
 
   CirculeButton.defaultProps = {
     style: null,
+    func: null,
+    color: "#000",
   };
 
   return (
-    <View style={[styles.circleButton, style]}>
+    <TouchableOpacity style={[styles.circleButton, style]} onPress={onPress}>
       <Icon name={name} size={40} color={color} />
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -41,9 +45,4 @@ const styles = StyleSheet.create({
     // elevationはAndroid対応 ※重なり順、高さ
     elevation: 8,
   },
-  // circleButtonLavel: {
-  //   color: "#fff",
-  //   fontSize: 40,
-  //   lineHeight: 40,
-  // },
 });
