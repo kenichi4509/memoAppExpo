@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -9,13 +9,35 @@ import {
 
 import Button from "../components/Button";
 export default function MemoSignUpScreen(props) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const { navigation } = props;
   return (
     <View style={styles.container}>
       <View style={styles.inner}>
         <Text style={styles.title}>Sign Up</Text>
-        <TextInput style={styles.input} value="Email Address" />
-        <TextInput style={styles.input} value="Password" />
+        <TextInput
+          style={styles.input}
+          value={email}
+          onChangeText={(text) => {
+            setEmail(text);
+          }}
+          autoCapitalize="none"
+          keyboardType="email-address"
+          placeholder="Email Address"
+          //IOS側でキー情報を取得し補完してくれる機能。
+          textContentType="emailAddress"
+        />
+        <TextInput
+          style={styles.input}
+          value={password}
+          onChangeText={(text) => {
+            setPassword(text);
+          }}
+          placeholder="Password"
+          secureTextEntry
+          textContentType="password"
+        />
         <Button
           label="Submit"
           onPress={() => {
@@ -24,6 +46,7 @@ export default function MemoSignUpScreen(props) {
               routes: [{ name: "MemoList" }],
             });
           }}
+          autoCapitalize="none"
         />
         <View style={styles.footer}>
           <Text style={styles.footerText}>Already registerd?</Text>
